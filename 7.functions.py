@@ -68,7 +68,37 @@ my_list = [(lambda arg_1: arg_1.upper())(i) for i in "hello"]
 my_lambdas = {
     "*": lambda arg_1, arg_2: arg_1 * arg_2, 
     "+": lambda w, z: w +z
-    }
+}
 
-print(my_lambdas["+"](5, 2))
-print(my_lambdas["*"](5, 2))
+# print(my_lambdas["+"](5,2))
+# print(my_lambdas["*"](5,2))
+
+
+# *** декоратор ***
+
+# Декоратор - функции, обертывающая другую (таргетную) функцию.
+
+# декоратор
+def my_decorator(func_object):
+    # функция-обертка
+    def wrapper(w):
+        # доп функциональность ДО
+        print("Before")
+        w = w + 2
+        # вызов целевой функции
+        func_object(w)
+        # доп фунциональность ПОСЛЕ
+        print("After")
+    # возврат объекта функции-обертки
+    return wrapper
+
+# новый способ применения декоратора
+@my_decorator
+# Целевая (таргетная) функция
+def target_func(arg_1):
+    print("Hallo! I am target func :)", arg_1)
+
+# старый способ применения декоратора
+# target_func = my_decorator(target_func)
+
+target_func(10)
