@@ -10,9 +10,9 @@ def calculate(n1, n2, op):
         pesult = n1 * n2
     elif op == '/':
         result = n1 / n2
-    elif:
-        result = (f"Что это такое {op}? :(")
-
+    else:
+        result = f"Что это такое {op}? :("
+    return result
 
 # цикл программы
 while True:
@@ -27,7 +27,7 @@ while True:
     op = input("Введите символ операции: ")
 
     # обработка данных
-    result = calculate(num_1, nam_2, op)
+    result = calculate(nam_1, nam_2, op)
 
     # вывод данных
     print(f"Результат: {result}")
